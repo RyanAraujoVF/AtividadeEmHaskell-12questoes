@@ -1,0 +1,12 @@
+---- 1) Faça um algoritmo que leia os valores A, B, C e imprima na tela se a soma de A + B é menor que C.
+main :: IO ()
+main = do
+    putStrLn "Digite o valor de A:"
+    a <- readLn
+    putStrLn "Digite o valor de B:"
+    b <- readLn
+    putStrLn "Digite o valor de C:"
+    c <- readLn
+    if (a + b) < c
+        then putStrLn "A soma de A + B é MENOR que C."
+        else putStrLn "A soma de A + B é MAIOR que C."
