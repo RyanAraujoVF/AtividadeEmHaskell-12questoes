@@ -1,0 +1,16 @@
+--4) Faça um algoritmo que leia dois valores inteiros A e B se os valores forem iguais deverá se somar os dois, caso contrário multiplique A por B. Ao final de qualquer um dos cálculos deve-se atribuir o resultado para uma variável e mostrar seu conteúdo na tela.
+main :: IO ()
+main = do
+    putStrLn "Informe o primeiro número inteiro (A): "
+    inputA <- getLine
+    let a = read inputA :: Int
+
+    putStrLn "Informe o segundo número inteiro (B): "
+    inputB <- getLine
+    let b = read inputB :: Int
+
+    if a < 0 || b < 0 then
+        putStrLn "Erro: Números negativos não são permitidos."
+    else do
+        let resultado = if a == b then a + b else a * b
+        putStrLn $ "O resultado é: " ++ show resultado
