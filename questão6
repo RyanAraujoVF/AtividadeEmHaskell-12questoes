@@ -1,0 +1,17 @@
+--6)Escreva um algoritmo que lê dois valores booleanos (lógicos) e então determina se ambos são VERDADEIROS ou FALSOS.
+main :: IO ()
+main = do
+    putStrLn "Informe o primeiro valor booleano (True/False): "
+    inputA <- getLine
+    let a = read inputA :: Bool
+
+    putStrLn "Informe o segundo valor booleano (True/False): "
+    inputB <- getLine
+    let b = read inputB :: Bool
+
+    if a && b then
+        putStrLn "Ambos são verdadeiros."
+    else if not a && not b then
+        putStrLn "Ambos são falsos."
+    else
+        putStrLn "Um é verdadeiro e o outro é falso."
