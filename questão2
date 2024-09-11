@@ -1,0 +1,18 @@
+--2)Faça um algoritmo em haskell em que leia o nome, o sexo e o estado civil de uma pessoa. Caso sexo seja “F” e estado civil seja “CASADA”, solicitar o tempo de casada (anos).
+import Control.Monad (when)
+
+main :: IO ()
+main = do
+    putStrLn "Digite o nome:"
+    nome <- getLine
+    putStrLn "Digite o sexo (M/F):"
+    sexo <- getLine
+    putStrLn "Digite o estado civil:"
+    estadoCivil <- getLine
+    when (sexo == "F" && estadoCivil == "CASADA") $ do
+        putStrLn "Digite o tempo de casada (em anos):"
+        tempoCasada <- readLn
+        if tempoCasada < 0
+            then putStrLn "O tempo de casada não pode ser negativo."
+            else putStrLn $ "Tempo de casada: " ++ show tempoCasada ++ " anos."
+    putStrLn "Fim do programa."
