@@ -1,0 +1,25 @@
+--8) Escreva um algoritmo que leia três valores inteiros e diferentes e mostre-os em ordem decrescente.
+import Data.List (sort)
+
+main :: IO ()
+main = do
+    putStrLn "Informe o primeiro número inteiro: "
+    inputA <- getLine
+    let a = read inputA :: Int
+
+    putStrLn "Informe o segundo número inteiro: "
+    inputB <- getLine
+    let b = read inputB :: Int
+
+    putStrLn "Informe o terceiro número inteiro: "
+    inputC <- getLine
+    let c = read inputC :: Int
+
+    if a < 0 || b < 0 || c < 0 then
+        putStrLn "Erro: Números negativos não são permitidos."
+    else if a == b || a == c || b == c then
+        putStrLn "Erro: Os números devem ser diferentes."
+    else do
+        let numeros = [a, b, c]
+        let ordenados = reverse (sort numeros)
+        putStrLn $ "Os números em ordem decrescente são: " ++ show ordenados
