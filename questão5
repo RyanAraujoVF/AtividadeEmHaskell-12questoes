@@ -1,0 +1,8 @@
+--5)Encontrar o dobro de um número caso ele seja positivo e o seu triplo caso seja negativo, imprimindo o resultado.
+main :: IO ()
+main = do
+    putStrLn "Informe um número: "
+    input <- getLine
+    let numero = read input :: Int
+    let resultado = if numero >= 0 then numero * 2 else numero * 3
+    putStrLn $ "O resultado é: " ++ show resultado
