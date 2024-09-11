@@ -1,0 +1,12 @@
+--3) Faça um algoritmo para receber um número qualquer e informar na tela se é par ou ímpar
+main :: IO ()
+main = do
+    putStrLn "Informe um número: "
+    input <- getLine
+    let numero = read input :: Int
+    if numero < 0 then
+        putStrLn "Erro: Número negativo não é permitido."
+    else if numero `mod` 2 == 0 then
+        putStrLn $ "Esse número " ++ show numero ++ " é PAR"
+    else
+        putStrLn $ "Esse número " ++ show numero ++ " é ÍMPAR"
