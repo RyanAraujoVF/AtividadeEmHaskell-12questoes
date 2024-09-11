@@ -1,0 +1,11 @@
+--7)Faça um algoritmo que leia uma variável e some 5 caso seja par ou some 8 caso seja ímpar, imprimir o resultado desta operação
+main :: IO ()
+main = do
+    putStrLn "Informe um número: "
+    input <- getLine
+    let numero = read input :: Int
+    if numero < 0 then
+        putStrLn "Erro: Número negativo não é permitido."
+    else do
+        let resultado = if numero `mod` 2 == 0 then numero + 5 else numero + 8
+        putStrLn $ "O resultado é: " ++ show resultado
