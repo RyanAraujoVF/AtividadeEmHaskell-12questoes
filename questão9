@@ -1,0 +1,17 @@
+--9)Tendo como dados de entrada a altura e o sexo de uma pessoa, construa um algoritmo que calcule seu peso ideal
+main :: IO ()
+main = do
+    putStrLn "Informe a altura (em metros): "
+    inputAltura <- getLine
+    let altura = read inputAltura :: Float
+
+    putStrLn "Informe o sexo (M para masculino, F para feminino): "
+    sexo <- getLine
+
+    if altura < 0 then
+        putStrLn "Erro: Altura negativa não é permitida."
+    else do
+        let pesoIdeal = if sexo == "M" then (72.7 * altura) - 58
+                        else if sexo == "F" then (62.1 * altura) - 44.7
+                        else error "Sexo inválido. Use 'M' para masculino ou 'F' para feminino."
+        putStrLn $ "O peso ideal é: " ++ show pesoIdeal ++ " kg"
