@@ -1,0 +1,20 @@
+--2)Faça um algoritmo em que leia o nome, o sexo e o estado civil de uma pessoa. Caso sexo seja “F” e estado civil seja “CASADA”, solicitar o tempo de casada (anos).
+main :: IO ()
+main = do
+    putStrLn "Informe o nome: "
+    nome <- getLine
+    putStrLn "Informe o sexo (M/F): "
+    sexo <- getLine
+    putStrLn "Informe o estado civil (SOLTEIRO(A)/CASADO(A)): "
+    estadoCivil <- getLine
+
+    if estadoCivil == "CASADO" then do
+        putStrLn "Informe o tempo de casado (anos): "
+        input <- getLine
+        let tempoCasado = read input :: Int
+        if tempoCasado < 0 then
+            putStrLn "Erro: Número negativo não é permitido."
+        else
+            putStrLn $ "Nome: " ++ nome ++ ", Sexo: " ++ sexo ++ ", Estado Civil: " ++ estadoCivil ++ ", Tempo de casado: " ++ show tempoCasado ++ " anos."
+    else
+        putStrLn $ "Nome: " ++ nome ++ ", Sexo: " ++ sexo ++ ", Estado Civil: " ++ estadoCivil
