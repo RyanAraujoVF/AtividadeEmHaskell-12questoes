@@ -1,0 +1,24 @@
+--10)O IMC – Indice de Massa Corporal é um critério da Organização Mundial de Saúde para dar uma indicação sobre a condição de peso de uma pessoa adulta...
+main :: IO ()
+main = do
+    putStrLn "Informe o peso (em kg): "
+    inputPeso <- getLine
+    let peso = read inputPeso :: Float
+
+    putStrLn "Informe a altura (em metros): "
+    inputAltura <- getLine
+    let altura = read inputAltura :: Float
+
+    if peso < 0 || altura < 0 then
+        putStrLn "Erro: Peso e altura não podem ser negativos."
+    else do
+        let imc = peso / (altura ^ 2)
+        putStrLn $ "Seu IMC é: " ++ show imc
+        putStrLn $ "Condição: " ++ condicaoIMC imc
+
+condicaoIMC :: Float -> String
+condicaoIMC imc
+    | imc < 18.5 = "Abaixo do peso"
+    | imc < 25.0 = "Peso normal"
+    | imc < 30.0 = "Acima do peso"
+    | otherwise  = "Obeso"
