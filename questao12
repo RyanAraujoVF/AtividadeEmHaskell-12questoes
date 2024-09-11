@@ -1,0 +1,41 @@
+--12)Escreva um algoritmo que leia o número de identificação, as 3 notas obtidas por um aluno nas 3 verificações e a média dos exercícios que fazem parte da avaliação, e calcule a média de aproveitamento..
+main :: IO ()
+main = do
+    putStrLn "Informe o número de identificação do aluno: "
+    idAluno <- getLine
+
+    putStrLn "Informe a primeira nota: "
+    inputNota1 <- getLine
+    let nota1 = read inputNota1 :: Float
+
+    putStrLn "Informe a segunda nota: "
+    inputNota2 <- getLine
+    let nota2 = read inputNota2 :: Float
+
+    putStrLn "Informe a terceira nota: "
+    inputNota3 <- getLine
+    let nota3 = read inputNota3 :: Float
+
+    putStrLn "Informe a média dos exercícios: "
+    inputME <- getLine
+    let me = read inputME :: Float
+
+    if nota1 < 0 || nota2 < 0 || nota3 < 0 || me < 0 then
+        putStrLn "Erro: Notas e média dos exercícios não podem ser negativas."
+    else do
+        let ma = (nota1 + nota2 * 2 + nota3 * 3 + me) / 7
+        let conceito = calcularConceito ma
+        putStrLn $ "Número do aluno: " ++ idAluno
+        putStrLn $ "Notas: " ++ show nota1 ++ ", " ++ show nota2 ++ ", " ++ show nota3
+        putStrLn $ "Média dos exercícios: " ++ show me
+        putStrLn $ "Média de aproveitamento: " ++ show ma
+        putStrLn $ "Conceito: " ++ conceito
+        putStrLn $ if conceito `elem` ["A", "B", "C"] then "Aprovado" else "Reprovado"
+
+calcularConceito :: Float -> String
+calcularConceito ma
+    | ma >= 90 = "A"
+    | ma >= 75 = "B"
+    | ma >= 60 = "C"
+    | ma >= 40 = "D"
+    | otherwise = "E"
